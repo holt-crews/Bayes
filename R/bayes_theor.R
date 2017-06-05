@@ -14,3 +14,4 @@ bayes_theor = function(x, y, cond_xy){
   if (cond_xy < 0 || cond_xy > 1) stop("Invalid probability for cond_xy!", call. = FALSE)
   return((cond_xy*y)/x)
 }
+
