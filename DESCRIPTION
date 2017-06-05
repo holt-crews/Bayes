@@ -1,11 +1,20 @@
 Package: Bayes
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Basic functions involving Bayes Theorem
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Author: Alex Carvalho, Winnie Yan, Holt Crews
+Maintainer: Holt Crews <holtcrews47@gmail.com>
+Description: This package includes a function (bayes_theor) that calculate a conditional probability (y given x) using Bayes theorem given 
+two probabilities (x and y) and a conditional probability (x given y), or if the two probabilities (x and y)
+are independent, it calculates the conditional probability (y given x) without taking a conditional probability 
+(x given y) as a parameter. 
+This package also includes a function (bayes_theor_extended) that returns a vector 
+of probabilities when given a partition of probabilities(x) as a vector and a singular probability(y). The vector returned
+gives the probability of each member of the vector of probabilities(x) given a probability(y). 
+This package also includes a function that draws a pie chart of the likelihood of the conditional probability in question
+occuring or not occuring. This function takes a probability(x), another probability(y), and a conditional probability(x given y).
+The function calculates a conditional probability(y given x) using Bayes Theorem and then draws a pie chart of the likelihood of that 
+conditional probability occuring and the likelihood of it not occuring.
+License: N/A
 Encoding: UTF-8
 LazyData: true
