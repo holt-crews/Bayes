@@ -51,6 +51,10 @@ bayes_theor(.1, .05, .07)
 #### bayes_theor_extended()
 bayes_theor_extended(x, y) is a more general application of Bayes Theorem; it takes a vector x that is a partition of probabilities and a probability y as input and returns a vector of conditional probabilities of each value x given y. bayes_theor_extended(x, y) always assumes that the partition y and the probability x are independent of one another. 
 
+This form of Bayes Theorem is shown here:
+
+$$P(A_{i}\mid B)={\frac {P(B\mid A_{i})\,P(A_{i})}{\sum \limits _{j}P(B\mid A_{j})\,P(A_{j})}}\cdot$$
+
 ```{r bayes_ex, echo=TRUE}
 # In this example the probabilities of the partition x are given as a vector c(.2, .4, .4) and the 
 # probability of y is .3
