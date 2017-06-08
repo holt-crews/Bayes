@@ -12,7 +12,7 @@
 #' @export
 
 
-bayes_theor_pie = function(x, y, cond_xy){
+bayes_theor_pie = function(x, y, cond_xy = (x*y)/y){
   if (x < 0 || x > 1) stop("Invalid probability for x!", call. = FALSE)
   if (y < 0 || y > 1) stop("Invalid probabilty for y!", call. = FALSE)
   if (cond_xy < 0 || cond_xy > 1) stop("Invalid probability for cond_xy!", call. = FALSE)

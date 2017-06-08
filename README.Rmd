@@ -1,0 +1,73 @@
+---
+title: "Bayes"
+author: "Alex Carvalho, Holt Crews, and Winnie Yan"
+date: "June 7, 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+library(Bayes)
+```
+
+## Overview
+
+The Bayes package allows the user to implement lightweight and easy to use functions that calculate and chart conditional probabilities using Bayes Theorem. 
+
+Here is Bayes Theorem: $$ P(X \mid Y) = \frac{P(Y \mid X) \, P(X)}{P(Y)} $$
+
+## Installation
+```{r install, eval=FALSE}
+# The package is currently only available on gitHub
+
+# First install the "devtools" package from CRAN if you have not already done so and then load this 
+# package. From the "devtools" package, use the "install_github" function to install the Bayes package
+
+install.packages("devtools")
+library(devtools)
+install_github("hcrews47/Bayes")
+```
+
+## Usage
+
+There are three functions in this Bayes Package: bayes_theor, bayes_theor_extended, and bayes_theor_pie. Each function is tailored to a specific aspect of the utilization of Bayes Theorem.
+
+
+#### bayes_theor()
+bayes_theor(x, y, cond_xy) is the most basic function within the package. bayes_theor() calculates the conditional probability of y given x. This function requires 2 parameters and has an optional third parameter that is only necessary if a conditional probability for x given y is already given. Otherwise, bayes_theor() assumes that the probabilities for x and y are independent of one another and calculates y givenx with this assumption.
+
+```{r bayes, echo=TRUE}
+# In this example the probability of x is .1, the probability of y is .05
+
+# default third parameter:
+bayes_theor(.1, .05)
+
+# third parameter changed with the probability of x given y as .07:
+bayes_theor(.1, .05, .07)
+```
+
+
+#### bayes_theor_extended()
+bayes_theor_extended(x, y) is a more general application of Bayes Theorem; it takes a vector x that is a partition of probabilities and a probability y as input and returns a vector of conditional probabilities of each value x given y. bayes_theor_extended(x, y) always assumes that the partition y and the probability x are independent of one another. 
+
+```{r bayes_ex, echo=TRUE}
+# In this example the probabilities of the partition x are given as a vector c(.2, .4, .4) and the 
+# probability of y is .3
+
+bayes_theor_extended(c(.2, .4, .4), .3)
+```
+
+
+### bayes_theor_pie()
+The final function in this Bayes Package, bayes_theor_pie(), fundamentally calculates the conditional probability in the same way as the bayes_theor() function, but instead of just returning the probability of the conditional requrested, bayes_theor_pie() draws a pie chart visualization of the probability of the conditional, a portion of which is the likelihood of the conditional and a portion is the unlikelihood of the conditional. bayes_theor_pie() depends on the "ggplot2" package to draw the pie chart.
+
+```{r bayes_pi, echo=TRUE}
+# This example uses the same probabilities as the example for bayes_theor()
+
+# default third parameter:
+bayes_theor_pie(.1, .05)
+
+# third parameter changed with the probability of x given y as .07:
+bayes_theor_pie(.1, .05, .57)
+```
